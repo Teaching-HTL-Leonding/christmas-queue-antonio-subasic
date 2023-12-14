@@ -83,14 +83,11 @@ public class Stack
     /// <returns>True if the item was successfully removed; otherwise, false.</returns>
     public bool TryPop(out string content)
     {
-        if (IsEmpty)
-        {
-            content = "";
-            return false;
-        }
+        content = First?.Content ?? "";
+
+        if (IsEmpty) { return false; }
         else
         {
-            content = First?.Content ?? "";
             First = First?.Next;
             return true;
         }
